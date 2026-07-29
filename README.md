@@ -17,7 +17,7 @@ Dados extraídos do site oficial [apartamento10.com.br](https://www.apartamento1
 
 ## Contato (dados reais)
 
-- Telefone / WhatsApp: (11) 99742-2540
+- Telefone: (11) 99742-2540
 - WhatsApp: (11) 99939-6202
 - E-mail: contato.apartamento10@gmail.com
 - Endereço: Rua Vilela, 652 · Tatuapé · São Paulo/SP · CEP 03314-000
