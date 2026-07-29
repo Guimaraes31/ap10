@@ -875,10 +875,12 @@
               <img data-enhance class="h-full w-full object-cover opacity-0" src="${img}" alt="${p._title}" loading="lazy" decoding="async" />
               ${badge}
               ${fase}
-              <span class="absolute right-4 top-4 z-10 bg-white/92 px-3 py-2 text-[9px] uppercase tracking-[.14em] text-ink backdrop-blur-sm">Cód. ${p.code || p.id}</span>
             </div>
             <div class="p-6 sm:p-7">
-              <p class="text-[9px] uppercase tracking-[.22em] text-gold">${loc}</p>
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <p class="text-[9px] uppercase tracking-[.22em] text-gold">${loc}</p>
+                <span class="inline-flex shrink-0 items-center border border-ink/15 bg-ink px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[.14em] text-white">Cód. ${p.code || p.id}</span>
+              </div>
               <h3 class="mt-3 font-display text-2xl leading-tight tracking-tight">${p._title}</h3>
               <div class="mt-5 flex flex-wrap border-y border-black/8 py-4 text-xs text-black/50">${specs || '<span>Consulte detalhes</span>'}</div>
               <div class="mt-5 flex items-center justify-between gap-3">
