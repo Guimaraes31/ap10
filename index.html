@@ -302,13 +302,26 @@
 
     /* —— Floating WA —— */
     .wa-float {
-      animation: waPulse 2.8s ease-in-out infinite;
-      box-shadow: 0 12px 30px rgba(37,211,102,.35);
+      display: grid;
+      place-items: center;
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 999px;
+      background: #25D366;
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(37,211,102,.4);
+      transition: transform .3s var(--ease-out), box-shadow .3s;
+      line-height: 0;
     }
-    .wa-float:hover { animation: none; transform: translateY(-3px) scale(1.05); }
-    @keyframes waPulse {
-      0%, 100% { box-shadow: 0 12px 30px rgba(37,211,102,.3); }
-      50% { box-shadow: 0 12px 40px rgba(37,211,102,.55); }
+    .wa-float:hover {
+      transform: translateY(-3px) scale(1.06);
+      box-shadow: 0 16px 36px rgba(37,211,102,.5);
+    }
+    .wa-float svg {
+      width: 1.75rem;
+      height: 1.75rem;
+      display: block;
+      flex-shrink: 0;
     }
 
     .map-grid {
@@ -322,62 +335,28 @@
     #mobileMenu {
       max-height: 0; overflow: hidden; opacity: 0;
       transition: max-height .45s var(--ease-out), opacity .35s, padding .35s;
+      background: #FFFCFA !important;
+      border-color: rgba(10,10,10,.08) !important;
     }
     #mobileMenu.is-open {
-      max-height: 320px; opacity: 1;
+      max-height: 360px; opacity: 1;
+    }
+    #mobileMenu a {
+      color: #0A0A0A !important;
+      transition: color .25s;
+    }
+    #mobileMenu a:hover,
+    #mobileMenu a:focus {
+      color: #C4A265 !important;
+    }
+    #mobileMenu a.is-cta {
+      color: #9A7B3F !important;
+      font-weight: 600;
     }
 
     .gold-rule {
       height: 1px;
       background: linear-gradient(90deg, transparent, #C4A265, transparent);
-    }
-
-    /* Casa Verde e Amarela badge */
-    .hero-cva {
-      position: absolute;
-      z-index: 20;
-      right: 1.1rem;
-      top: 5.75rem;
-      opacity: 0;
-      transform: translateY(12px) scale(.96);
-      animation: riseIn .9s var(--ease-out) 1s forwards;
-    }
-    @media (min-width: 1024px) {
-      .hero-cva { right: 2.5rem; top: 6.25rem; }
-    }
-    .hero-cva-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: .45rem;
-      padding: .65rem .7rem .55rem;
-      border-radius: 14px;
-      background: rgba(255, 252, 250, .96);
-      box-shadow: 0 16px 40px rgba(0,0,0,.28), 0 0 0 1px rgba(255,255,255,.35);
-      backdrop-filter: blur(12px);
-      transition: transform .4s var(--ease-out), box-shadow .4s;
-    }
-    .hero-cva-card:hover {
-      transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 20px 48px rgba(0,0,0,.32), 0 0 0 1px rgba(196,162,101,.35);
-    }
-    .hero-cva-card img {
-      width: 72px;
-      height: 72px;
-      object-fit: contain;
-    }
-    @media (min-width: 640px) {
-      .hero-cva-card img { width: 88px; height: 88px; }
-    }
-    .hero-cva-label {
-      font-size: 8px;
-      font-weight: 600;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: rgba(10,10,10,.45);
-      text-align: center;
-      line-height: 1.25;
-      max-width: 96px;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -433,13 +412,13 @@
         </button>
       </div>
     </div>
-    <div id="mobileMenu" class="border-t border-white/10 bg-ink/98 px-5 xl:hidden">
-      <div class="flex flex-col gap-5 py-6 text-sm uppercase tracking-[.16em] text-white/80">
-        <a href="#sobre" class="hover:text-gold-light">A Empresa</a>
-        <a href="#imoveis" class="hover:text-gold-light">Lançamentos</a>
-        <a href="#galeria" class="hover:text-gold-light">Galeria</a>
-        <a href="#diferenciais" class="hover:text-gold-light">Serviços</a>
-        <a href="#contato" class="text-gold-light">Fale conosco</a>
+    <div id="mobileMenu" class="border-t px-5 xl:hidden">
+      <div class="flex flex-col gap-5 py-6 text-sm uppercase tracking-[.16em]">
+        <a href="#sobre">A Empresa</a>
+        <a href="#imoveis">Lançamentos</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#diferenciais">Serviços</a>
+        <a href="#contato" class="is-cta">Fale conosco</a>
       </div>
     </div>
   </header>
@@ -453,14 +432,6 @@
       </picture>
       <div class="hero-veil absolute inset-0"></div>
       <div class="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/50 to-transparent"></div>
-
-      <!-- Programa Casa Verde e Amarela -->
-      <a href="#imoveis" class="hero-cva group" title="Programa Casa Verde e Amarela" aria-label="Imóveis do Programa Casa Verde e Amarela">
-        <span class="hero-cva-card">
-          <img src="assets/badges/casa-verde-amarela.png" width="88" height="88" alt="Programa Casa Verde e Amarela" decoding="async" />
-          <span class="hero-cva-label">Casa Verde e Amarela</span>
-        </span>
-      </a>
 
       <div class="relative z-10 mx-auto grid w-full max-w-[1440px] gap-10 px-5 pb-16 pt-32 lg:grid-cols-[1.15fr_.85fr] lg:items-end lg:px-10 lg:pb-20">
         <div class="hero-stagger max-w-3xl">
@@ -695,8 +666,10 @@
     </section>
   </main>
 
-  <a href="https://wa.me/5511997422540?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20a%20Apartamento%2010." target="_blank" rel="noopener" class="wa-float fixed bottom-5 right-5 z-40 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white transition" aria-label="WhatsApp">
-    <svg class="h-7 w-7" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.43c-.26-.13-1.53-.75-1.77-.84-.24-.09-.41-.13-.59.13-.17.26-.67.84-.82 1.01-.15.17-.3.2-.56.07-2.77-1.39-4.59-2.48-6.43-5.63-.49-.84.49-.78 1.39-2.59.15-.3.07-.56-.04-.69-.11-.13-.59-1.42-.8-1.94-.21-.51-.43-.44-.59-.45h-.5c-.17 0-.45.07-.69.32-.24.26-.91.89-.91 2.16s.93 2.51 1.06 2.68c.13.17 1.82 2.78 4.41 3.9 1.64.71 2.28.77 3.1.65.5-.07 1.53-.62 1.74-1.22.22-.6.22-1.12.15-1.22-.06-.12-.23-.18-.49-.31M16.03 3.2A12.78 12.78 0 0 0 5.1 22.59L3.3 29.2l6.76-1.77A12.76 12.76 0 1 0 16.03 3.2m0 23.22c-2.1 0-4.15-.57-5.94-1.64l-.43-.26-4.01 1.05 1.07-3.91-.28-.44A10.58 10.58 0 1 1 16.03 26.4"/></svg>
+  <a href="https://wa.me/5511997422540?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20a%20Apartamento%2010." target="_blank" rel="noopener" class="wa-float fixed bottom-5 right-5 z-50" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
   </a>
 
   <footer class="bg-[#070707] text-white/50">
