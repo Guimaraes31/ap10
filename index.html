@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Imóveis exclusivos com a qualidade que só a Apartamento 10 oferece. Confira as melhores ofertas de apartamentos na planta e lançamentos em São Paulo, SP e agende uma visita." />
+  <meta name="theme-color" content="#0A0A0A" />
+  <meta name="keywords" content="imobiliária em são paulo, apartamento na planta em são paulo, lançamentos, apartamentos, consultoria imobiliária, Apartamento 10" />
+  <title>Apartamento 10 | Consultoria imobiliária</title>
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <link rel="canonical" href="https://www.apartamento10.com.br/" />
+  <meta property="og:site_name" content="Apartamento 10 | Consultoria imobiliária" />
+  <meta property="og:title" content="Apartamento 10 | Consultoria imobiliária" />
+  <meta property="og:description" content="Imóveis exclusivos com a qualidade que só a Apartamento 10 oferece. Confira as melhores ofertas de apartamentos na planta e lançamentos em São Paulo, SP e agende uma visita." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/banners/hero-desktop.jpg" />
+  <link rel="preload" as="image" href="assets/banners/hero-desktop.jpg" media="(min-width: 768px)" />
+  <link rel="preload" as="image" href="assets/banners/hero-mobile.jpg" media="(max-width: 767px)" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#0A0A0A',
+            charcoal: '#141414',
+            ivory: '#FFFCFA',
+            sand: '#F3EFE8',
+            mist: '#E8E2D8',
+            gold: '#C4A265',
+            'gold-light': '#D9BF88',
+            'gold-dark': '#9A7B3F'
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            sans: ['DM Sans', 'system-ui', 'sans-serif']
+          },
+          boxShadow: {
+            premium: '0 30px 80px rgba(10,10,10,.16)',
+            soft: '0 12px 40px rgba(10,10,10,.08)',
+            glow: '0 0 40px rgba(196,162,101,.25)'
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root {
+      --ink: #0A0A0A;
+      --gold: #C4A265;
+      --ease-out: cubic-bezier(.16, 1, .3, 1);
+      --ease-soft: cubic-bezier(.22, .61, .36, 1);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #FFFCFA;
+      text-rendering: optimizeLegibility;
+    }
+    ::selection { background: #0A0A0A; color: #fff; }
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: #F3EFE8; }
+    ::-webkit-scrollbar-thumb { background: #cfc6b6; border-radius: 999px; border: 2px solid #F3EFE8; }
+    ::-webkit-scrollbar-thumb:hover { background: #C4A265; }
+
+    /* —— Loader —— */
+    #pageLoader {
+      position: fixed; inset: 0; z-index: 100;
+      display: grid; place-items: center;
+      background: #0A0A0A;
+      transition: opacity .7s var(--ease-out), visibility .7s;
+    }
+    #pageLoader.is-done { opacity: 0; visibility: hidden; pointer-events: none; }
+    .loader-logo {
+      width: min(200px, 50vw); opacity: 0;
+      animation: loaderIn .8s var(--ease-out) .1s forwards;
+      filter: brightness(0) invert(1);
+    }
+    .loader-bar {
+      margin-top: 1.5rem; height: 1px; width: 120px; background: rgba(255,255,255,.12); overflow: hidden;
+    }
+    .loader-bar span {
+      display: block; height: 100%; width: 0; background: linear-gradient(90deg, transparent, #C4A265, transparent);
+      animation: loadBar 1.1s var(--ease-out) forwards;
+    }
+    @keyframes loaderIn { to { opacity: 1; transform: none; } }
+    @keyframes loadBar { to { width: 100%; } }
+
+    /* —— Scroll progress —— */
+    #scrollProgress {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0; z-index: 90;
+      background: linear-gradient(90deg, #9A7B3F, #C4A265, #D9BF88);
+      box-shadow: 0 0 12px rgba(196,162,101,.5);
+      transition: width .1s linear;
+    }
+
+    /* —— Noise / grain —— */
+    .noise::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .05; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+    }
+
+    /* —— Hero —— */
+    .hero-image {
+      transform: scale(1.12);
+      animation: heroZoom 14s var(--ease-soft) forwards;
+      will-change: transform;
+    }
+    @keyframes heroZoom {
+      0% { transform: scale(1.12) translateY(0); }
+      100% { transform: scale(1) translateY(-1.5%); }
+    }
+    .hero-veil {
+      background:
+        linear-gradient(105deg, rgba(0,0,0,.88) 0%, rgba(0,0,0,.55) 42%, rgba(0,0,0,.2) 100%),
+        linear-gradient(to top, rgba(10,10,10,.92) 0%, transparent 45%);
+    }
+    .hero-line {
+      width: 0; animation: growLine .9s var(--ease-out) .5s forwards;
+    }
+    @keyframes growLine { to { width: 2.5rem; } }
+    .hero-stagger > * {
+      opacity: 0; transform: translateY(28px);
+      animation: riseIn .9s var(--ease-out) forwards;
+    }
+    .hero-stagger > *:nth-child(1) { animation-delay: .25s; }
+    .hero-stagger > *:nth-child(2) { animation-delay: .4s; }
+    .hero-stagger > *:nth-child(3) { animation-delay: .55s; }
+    .hero-stagger > *:nth-child(4) { animation-delay: .7s; }
+    .hero-stagger > *:nth-child(5) { animation-delay: .85s; }
+    @keyframes riseIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* —— Reveal system —— */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 1s var(--ease-out), transform 1s var(--ease-out);
+      transition-delay: var(--d, 0ms);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(.96);
+      transition: opacity 1s var(--ease-out), transform 1s var(--ease-out);
+      transition-delay: var(--d, 0ms);
+    }
+    .reveal-scale.visible { opacity: 1; transform: none; }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-32px);
+      transition: opacity 1s var(--ease-out), transform 1s var(--ease-out);
+      transition-delay: var(--d, 0ms);
+    }
+    .reveal-left.visible { opacity: 1; transform: none; }
+
+    /* —— Nav —— */
+    #navbar {
+      transition: background .45s var(--ease-out), box-shadow .45s var(--ease-out), border-color .45s, backdrop-filter .45s;
+    }
+    .nav-scrolled {
+      background: rgba(255,252,250,.92);
+      backdrop-filter: blur(18px) saturate(1.2);
+      box-shadow: 0 10px 40px rgba(10,10,10,.08);
+      border-color: rgba(10,10,10,.06) !important;
+    }
+    .nav-scrolled .nav-link { color: rgba(10,10,10,.7) !important; }
+    .nav-scrolled .nav-link:hover { color: #C4A265 !important; }
+    .nav-scrolled .brand-name { color: #0A0A0A !important; }
+    .nav-scrolled .brand-sub { color: rgba(10,10,10,.45) !important; }
+    .nav-scrolled .nav-search input { color: #0A0A0A; border-color: rgba(10,10,10,.2); }
+    .nav-scrolled .nav-search input::placeholder { color: rgba(10,10,10,.4); }
+    .nav-scrolled .nav-search svg { color: rgba(10,10,10,.45); }
+    .nav-scrolled .menu-btn { color: #0A0A0A; border-color: rgba(10,10,10,.15); }
+    .nav-scrolled .brand-logo { filter: none; }
+    .brand-logo {
+      height: 42px; width: auto; max-width: 150px; object-fit: contain;
+      transition: filter .4s, transform .4s var(--ease-out);
+    }
+    #navbar:not(.nav-scrolled) .brand-logo {
+      filter: brightness(0) invert(1);
+    }
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; bottom: -6px; width: 100%; height: 1px;
+      background: currentColor; transform: scaleX(0); transform-origin: left;
+      transition: transform .35s var(--ease-out);
+    }
+    .nav-link:hover::after { transform: scaleX(1); }
+
+    /* —— Buttons —— */
+    .btn-shine {
+      position: relative; overflow: hidden;
+      transition: transform .35s var(--ease-out), background .35s, color .35s, box-shadow .35s;
+    }
+    .btn-shine::before {
+      content: ''; position: absolute; inset: 0; transform: translateX(-120%) skewX(-18deg);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
+      transition: transform .7s var(--ease-out);
+    }
+    .btn-shine:hover::before { transform: translateX(120%) skewX(-18deg); }
+    .btn-shine:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(10,10,10,.18); }
+    .btn-shine:active { transform: translateY(0); }
+
+    /* —— Cards —— */
+    .property-card {
+      border-radius: 2px;
+      overflow: hidden;
+      background: #FFFCFA;
+      box-shadow: 0 1px 0 rgba(10,10,10,.04);
+      transition: transform .55s var(--ease-out), box-shadow .55s var(--ease-out);
+    }
+    .property-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 28px 60px rgba(10,10,10,.14);
+    }
+    .property-card .img-wrap { position: relative; overflow: hidden; background: #E8E2D8; }
+    .property-card .img-wrap::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,.45) 0%, transparent 45%);
+      opacity: 0; transition: opacity .5s;
+    }
+    .property-card:hover .img-wrap::after { opacity: 1; }
+    .property-card img {
+      transition: transform 1s var(--ease-out), filter .5s;
+      will-change: transform;
+    }
+    .property-card:hover img { transform: scale(1.08); }
+    .img-skeleton {
+      background: linear-gradient(110deg, #E8E2D8 25%, #F3EFE8 40%, #E8E2D8 55%);
+      background-size: 200% 100%;
+      animation: shimmer 1.4s linear infinite;
+    }
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+    img.is-loaded { animation: imgFade .6s var(--ease-out) forwards; }
+    @keyframes imgFade { from { opacity: 0; } to { opacity: 1; } }
+
+    .filter-btn {
+      transition: background .3s, color .3s, border-color .3s, transform .3s var(--ease-out);
+    }
+    .filter-btn:hover { transform: translateY(-1px); }
+    .filter-btn.active {
+      background: #0A0A0A; border-color: #0A0A0A; color: #fff;
+      box-shadow: 0 8px 20px rgba(10,10,10,.15);
+    }
+
+    /* —— Film strip —— */
+    .film-track {
+      display: flex; gap: 1rem; width: max-content;
+      animation: filmScroll 40s linear infinite;
+    }
+    .film-track:hover { animation-play-state: paused; }
+    @keyframes filmScroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .film-item {
+      position: relative; width: 280px; height: 180px; flex-shrink: 0; overflow: hidden;
+      border-radius: 2px;
+    }
+    .film-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .8s var(--ease-out);
+    }
+    .film-item:hover img { transform: scale(1.06); }
+
+    /* —— Service cards —— */
+    .service-card {
+      transition: background .4s, transform .4s var(--ease-out);
+    }
+    .service-card:hover { background: rgba(255,255,255,.04); }
+    .service-card .num {
+      transition: color .4s, transform .4s var(--ease-out);
+    }
+    .service-card:hover .num { color: #D9BF88; transform: translateY(-4px); }
+
+    /* —— Phase bar —— */
+    .phase-track { height: 3px; background: rgba(255,255,255,.12); overflow: hidden; }
+    .phase-fill {
+      height: 100%; width: 0;
+      background: linear-gradient(90deg, #9A7B3F, #D9BF88);
+      transition: width 1.4s var(--ease-out);
+    }
+    .phase-fill.is-on { width: 75%; }
+
+    /* —— Form —— */
+    .field-line {
+      transition: border-color .3s, box-shadow .3s;
+    }
+    .field-line:focus {
+      border-color: #C4A265 !important;
+      box-shadow: 0 1px 0 #C4A265;
+    }
+
+    /* —— Floating WA —— */
+    .wa-float {
+      animation: waPulse 2.8s ease-in-out infinite;
+      box-shadow: 0 12px 30px rgba(37,211,102,.35);
+    }
+    .wa-float:hover { animation: none; transform: translateY(-3px) scale(1.05); }
+    @keyframes waPulse {
+      0%, 100% { box-shadow: 0 12px 30px rgba(37,211,102,.3); }
+      50% { box-shadow: 0 12px 40px rgba(37,211,102,.55); }
+    }
+
+    .map-grid {
+      background-image:
+        linear-gradient(rgba(196,162,101,.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(196,162,101,.1) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    /* Mobile menu */
+    #mobileMenu {
+      max-height: 0; overflow: hidden; opacity: 0;
+      transition: max-height .45s var(--ease-out), opacity .35s, padding .35s;
+    }
+    #mobileMenu.is-open {
+      max-height: 320px; opacity: 1;
+    }
+
+    .gold-rule {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #C4A265, transparent);
+    }
+
+    /* Casa Verde e Amarela badge */
+    .hero-cva {
+      position: absolute;
+      z-index: 20;
+      right: 1.1rem;
+      top: 5.75rem;
+      opacity: 0;
+      transform: translateY(12px) scale(.96);
+      animation: riseIn .9s var(--ease-out) 1s forwards;
+    }
+    @media (min-width: 1024px) {
+      .hero-cva { right: 2.5rem; top: 6.25rem; }
+    }
+    .hero-cva-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .45rem;
+      padding: .65rem .7rem .55rem;
+      border-radius: 14px;
+      background: rgba(255, 252, 250, .96);
+      box-shadow: 0 16px 40px rgba(0,0,0,.28), 0 0 0 1px rgba(255,255,255,.35);
+      backdrop-filter: blur(12px);
+      transition: transform .4s var(--ease-out), box-shadow .4s;
+    }
+    .hero-cva-card:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 20px 48px rgba(0,0,0,.32), 0 0 0 1px rgba(196,162,101,.35);
+    }
+    .hero-cva-card img {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+    }
+    @media (min-width: 640px) {
+      .hero-cva-card img { width: 88px; height: 88px; }
+    }
+    .hero-cva-label {
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(10,10,10,.45);
+      text-align: center;
+      line-height: 1.25;
+      max-width: 96px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .film-track { animation: none; }
+      .hero-image { transform: none; }
+    }
+  </style>
+</head>
+<body class="font-sans text-ink antialiased overflow-x-hidden">
+  <div id="pageLoader" aria-hidden="true">
+    <div class="text-center">
+      <img src="logo.png" alt="" class="loader-logo mx-auto" width="200" height="100" />
+      <div class="loader-bar mx-auto"><span></span></div>
+    </div>
+  </div>
+  <div id="scrollProgress" aria-hidden="true"></div>
+
+  <header id="navbar" class="fixed inset-x-0 top-0 z-50 border-b border-white/10">
+    <div class="mx-auto flex h-[4.75rem] max-w-[1440px] items-center justify-between px-5 lg:px-10">
+      <a href="#inicio" class="group flex items-center gap-3" aria-label="Apartamento 10 - início">
+        <img src="logo.png" alt="Apartamento 10" class="brand-logo" width="150" height="42" />
+        <span class="leading-none hidden md:block">
+          <strong class="brand-name block font-display text-[1.05rem] font-medium tracking-wide text-ivory">Apartamento 10</strong>
+          <span class="brand-sub text-[9px] uppercase tracking-[.3em] text-white/50">Consultoria imobiliária</span>
+        </span>
+      </a>
+      <nav class="hidden items-center gap-8 xl:flex" aria-label="Navegação principal">
+        <a href="#sobre" class="nav-link text-[11px] font-medium uppercase tracking-[.18em] text-white/70 transition hover:text-gold-light">A Empresa</a>
+        <a href="#imoveis" class="nav-link text-[11px] font-medium uppercase tracking-[.18em] text-white/70 transition hover:text-gold-light">Lançamentos</a>
+        <a href="#galeria" class="nav-link text-[11px] font-medium uppercase tracking-[.18em] text-white/70 transition hover:text-gold-light">Galeria</a>
+        <a href="#diferenciais" class="nav-link text-[11px] font-medium uppercase tracking-[.18em] text-white/70 transition hover:text-gold-light">Serviços</a>
+        <a href="#contato" class="nav-link text-[11px] font-medium uppercase tracking-[.18em] text-white/70 transition hover:text-gold-light">Contato</a>
+      </nav>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <form id="navSearch" class="nav-search relative hidden lg:block" role="search">
+          <label for="navSearchInput" class="sr-only">Buscar imóvel</label>
+          <input id="navSearchInput" type="search" placeholder="Bairro, código..." class="w-40 border-b border-white/25 bg-transparent py-2 pl-7 pr-2 text-xs text-white outline-none transition-all placeholder:text-white/40 focus:w-52 focus:border-gold" />
+          <svg class="absolute left-0 top-2.5 h-3.5 w-3.5 text-white/55" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        </form>
+        <a href="#contato" class="btn-shine hidden border border-gold bg-gold px-5 py-3 text-[10px] font-semibold uppercase tracking-[.18em] text-ink sm:inline-flex">Fale conosco</a>
+        <button id="menuButton" class="menu-btn grid h-11 w-11 place-items-center border border-white/20 text-white xl:hidden" aria-label="Abrir menu" aria-expanded="false">
+          <span class="menu-icon space-y-1.5" aria-hidden="true">
+            <span class="block h-px w-5 bg-current transition-transform origin-center"></span>
+            <span class="block h-px w-5 bg-current transition-opacity"></span>
+            <span class="block h-px w-5 bg-current transition-transform origin-center"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="border-t border-white/10 bg-ink/98 px-5 xl:hidden">
+      <div class="flex flex-col gap-5 py-6 text-sm uppercase tracking-[.16em] text-white/80">
+        <a href="#sobre" class="hover:text-gold-light">A Empresa</a>
+        <a href="#imoveis" class="hover:text-gold-light">Lançamentos</a>
+        <a href="#galeria" class="hover:text-gold-light">Galeria</a>
+        <a href="#diferenciais" class="hover:text-gold-light">Serviços</a>
+        <a href="#contato" class="text-gold-light">Fale conosco</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="inicio" class="noise relative flex min-h-[100svh] items-end overflow-hidden bg-ink text-white">
+      <picture class="absolute inset-0">
+        <source media="(max-width: 767px)" srcset="assets/banners/hero-mobile.jpg" />
+        <img class="hero-image absolute inset-0 h-full w-full object-cover object-[center_40%]" src="assets/banners/hero-desktop.jpg" alt="Apartamento 10 — lançamentos residenciais em São Paulo" fetchpriority="high" decoding="async" />
+      </picture>
+      <div class="hero-veil absolute inset-0"></div>
+      <div class="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/50 to-transparent"></div>
+
+      <!-- Programa Casa Verde e Amarela -->
+      <a href="#imoveis" class="hero-cva group" title="Programa Casa Verde e Amarela" aria-label="Imóveis do Programa Casa Verde e Amarela">
+        <span class="hero-cva-card">
+          <img src="assets/badges/casa-verde-amarela.png" width="88" height="88" alt="Programa Casa Verde e Amarela" decoding="async" />
+          <span class="hero-cva-label">Casa Verde e Amarela</span>
+        </span>
+      </a>
+
+      <div class="relative z-10 mx-auto grid w-full max-w-[1440px] gap-10 px-5 pb-16 pt-32 lg:grid-cols-[1.15fr_.85fr] lg:items-end lg:px-10 lg:pb-20">
+        <div class="hero-stagger max-w-3xl">
+          <p class="mb-6 flex items-center gap-3 text-[10px] font-medium uppercase tracking-[.36em] text-gold-light">
+            <span class="hero-line inline-block h-px bg-gold"></span>
+            Consultoria imobiliária · São Paulo
+          </p>
+          <h1 class="font-display text-[clamp(2.75rem,7vw,6.4rem)] font-medium leading-[.94] tracking-[-.03em]">
+            Temos imóveis para<br />
+            <em class="font-normal italic text-gold-light">todos os gostos!</em>
+          </h1>
+          <p class="mt-7 max-w-xl text-[15px] font-light leading-7 text-white/70 sm:text-base">
+            Imóveis exclusivos com a qualidade que só a Apartamento 10 oferece. Apartamentos na planta e lançamentos em São Paulo — agende uma visita.
+          </p>
+          <div class="mt-9 flex flex-wrap items-center gap-4">
+            <a href="#imoveis" class="btn-shine group inline-flex items-center gap-4 bg-ivory px-7 py-4 text-[11px] font-semibold uppercase tracking-[.16em] text-ink">
+              Explorar lançamentos
+              <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </a>
+            <a href="https://wa.me/5511997422540?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20a%20Apartamento%2010." target="_blank" rel="noopener" class="px-2 py-4 text-[11px] uppercase tracking-[.16em] text-white/75 underline decoration-white/25 underline-offset-8 transition hover:text-gold-light hover:decoration-gold">
+              WhatsApp (11) 99742-2540
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-stagger hidden border-l border-white/15 pl-8 lg:block" style="animation: none;">
+          <div class="opacity-0" style="animation: riseIn .9s var(--ease-out) .9s forwards;">
+            <p class="text-[10px] uppercase tracking-[.28em] text-white/40">Em destaque</p>
+            <p class="mt-3 font-display text-2xl leading-snug" id="heroCount">Carregando…</p>
+            <div class="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-xs text-white/60" id="heroStats"></div>
+            <div class="mt-8">
+              <div class="mb-2 flex justify-between text-[10px] uppercase tracking-[.16em] text-white/45">
+                <span>Fase da obra</span>
+                <span id="heroPhaseLabel">—</span>
+              </div>
+              <div class="phase-track rounded-full"><div id="heroPhaseBar" class="phase-fill rounded-full"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#sobre" class="absolute bottom-8 right-6 z-20 hidden h-14 w-14 place-items-center rounded-full border border-white/20 text-white/65 transition hover:border-gold hover:text-gold lg:grid" aria-label="Rolar para baixo">
+        <span class="animate-bounce text-lg">↓</span>
+      </a>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="relative overflow-hidden bg-ivory py-24 lg:py-36">
+      <div class="pointer-events-none absolute -right-20 top-20 h-72 w-72 rounded-full bg-gold/5 blur-3xl"></div>
+      <div class="mx-auto grid max-w-[1320px] gap-14 px-5 lg:grid-cols-[.9fr_1.1fr] lg:gap-20 lg:px-10">
+        <div class="reveal-scale relative min-h-[440px] sm:min-h-[560px]">
+          <div class="absolute left-0 top-0 h-[86%] w-[88%] overflow-hidden shadow-premium">
+            <img class="h-full w-full object-cover transition duration-[1.2s] hover:scale-105" src="assets/imoveis/10027/02.jpg" alt="Lançamento ANALIA FRANCO — Apartamento 10" loading="lazy" decoding="async" />
+          </div>
+          <div class="absolute bottom-0 right-0 w-44 overflow-hidden border border-white/10 bg-ink p-0 text-ivory shadow-premium sm:w-56">
+            <img src="assets/imoveis/10027/05.jpg" alt="" class="h-28 w-full object-cover opacity-80 sm:h-32" loading="lazy" />
+            <div class="p-5 sm:p-6">
+              <p class="font-display text-3xl text-gold-light sm:text-4xl">SP</p>
+              <p class="mt-2 text-[10px] uppercase leading-5 tracking-[.22em] text-white/50">Tatuapé · São Paulo</p>
+            </div>
+          </div>
+          <div class="absolute -left-3 top-1/3 hidden h-24 w-1 bg-gradient-to-b from-gold to-transparent lg:block"></div>
+        </div>
+        <div class="reveal flex flex-col justify-center">
+          <p class="text-[10px] font-semibold uppercase tracking-[.32em] text-gold">Sobre a Apartamento 10</p>
+          <h2 class="mt-5 max-w-2xl font-display text-4xl leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.4rem]">
+            Consultoria imobiliária com foco em <em class="italic text-gold">lançamentos</em> e apartamentos na planta.
+          </h2>
+          <div class="gold-rule my-8 max-w-[120px]"></div>
+          <p class="max-w-xl text-[15px] font-light leading-7 text-black/60">
+            Imóveis exclusivos com a qualidade que só a Apartamento 10 oferece. Confira as melhores ofertas de apartamentos na planta e lançamentos em São Paulo, SP e agende uma visita.
+          </p>
+          <p class="mt-4 max-w-xl text-[15px] font-light leading-7 text-black/60">
+            Matriz no Tatuapé — Rua Vilela, 652. CRECI 35397.
+          </p>
+          <div class="mt-12 grid grid-cols-3 gap-4 border-t border-black/8 pt-9">
+            <div>
+              <strong class="font-display text-3xl sm:text-4xl tabular-nums" data-count id="statTotal">0</strong>
+              <span class="mt-2 block text-[9px] uppercase tracking-[.18em] text-black/40">imóveis</span>
+            </div>
+            <div>
+              <strong class="font-display text-3xl sm:text-4xl tabular-nums" data-count id="statLanc">0</strong>
+              <span class="mt-2 block text-[9px] uppercase tracking-[.18em] text-black/40">lançamentos</span>
+            </div>
+            <div>
+              <strong class="font-display text-3xl sm:text-4xl tabular-nums" data-count id="statVen">0</strong>
+              <span class="mt-2 block text-[9px] uppercase tracking-[.18em] text-black/40">venda</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMOVEIS -->
+    <section id="imoveis" class="bg-sand py-24 lg:py-32">
+      <div class="mx-auto max-w-[1440px] px-5 lg:px-10">
+        <div class="reveal flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+          <div>
+            <p class="text-[10px] font-semibold uppercase tracking-[.32em] text-gold">Portfólio</p>
+            <h2 class="mt-4 font-display text-4xl sm:text-5xl lg:text-6xl">Lançamentos</h2>
+          </div>
+          <p class="max-w-md text-sm font-light leading-7 text-black/50" id="listingSummary">Imóveis publicados no catálogo da Apartamento 10.</p>
+        </div>
+
+        <div class="reveal mt-10 flex flex-wrap gap-2" style="--d:80ms" role="group" aria-label="Filtrar imóveis">
+          <button class="filter-btn active border border-black/12 px-5 py-2.5 text-[10px] font-semibold uppercase tracking-[.16em]" data-filter="todos">Todos</button>
+          <button class="filter-btn border border-black/12 px-5 py-2.5 text-[10px] font-semibold uppercase tracking-[.16em]" data-filter="lancamento">Lançamentos</button>
+          <button class="filter-btn border border-black/12 px-5 py-2.5 text-[10px] font-semibold uppercase tracking-[.16em]" data-filter="venda">Venda</button>
+          <button class="filter-btn border border-black/12 px-5 py-2.5 text-[10px] font-semibold uppercase tracking-[.16em]" data-filter="obras">Em obras</button>
+        </div>
+
+        <div id="propertyGrid" class="mt-12 grid gap-7 md:grid-cols-2 lg:grid-cols-3"></div>
+        <p id="noResults" class="hidden py-16 text-center font-display text-2xl text-black/40">Nenhum imóvel encontrado com esses filtros.</p>
+        <div class="mt-12 flex justify-center">
+          <button id="loadMore" type="button" class="btn-shine hidden border border-ink px-9 py-3.5 text-[10px] font-semibold uppercase tracking-[.18em] transition hover:bg-ink hover:text-white">Carregar mais</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIA FILM STRIP -->
+    <section id="galeria" class="overflow-hidden bg-ink py-20 text-ivory lg:py-28">
+      <div class="mx-auto max-w-[1440px] px-5 lg:px-10">
+        <div class="reveal flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+          <div>
+            <p class="text-[10px] font-semibold uppercase tracking-[.32em] text-gold-light">Galeria</p>
+            <h2 class="mt-4 font-display text-4xl sm:text-5xl">ANALIA FRANCO</h2>
+            <p class="mt-3 text-sm font-light text-white/50">Guaiaúna · São Paulo · 75% pronto</p>
+          </div>
+          <a href="imovel.html?id=10027" class="btn-shine inline-flex items-center gap-3 border border-white/20 px-6 py-3 text-[10px] font-semibold uppercase tracking-[.16em] text-white transition hover:border-gold hover:bg-gold hover:text-ink">
+            Ver empreendimento →
+          </a>
+        </div>
+      </div>
+      <div class="reveal mt-12 overflow-hidden" style="--d:120ms">
+        <div class="film-track" id="filmTrack" aria-label="Galeria de fotos do lançamento">
+          <!-- filled by JS, duplicated for loop -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICOS -->
+    <section id="diferenciais" class="bg-charcoal py-24 text-ivory lg:py-32">
+      <div class="mx-auto max-w-[1320px] px-5 lg:px-10">
+        <div class="reveal max-w-3xl">
+          <p class="text-[10px] font-semibold uppercase tracking-[.32em] text-gold-light">Serviços</p>
+          <h2 class="mt-5 font-display text-4xl leading-tight sm:text-5xl">Do primeiro contato ao <em class="italic text-gold-light">fechamento.</em></h2>
+        </div>
+        <div class="mt-16 grid border-l border-t border-white/10 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="service-card reveal border-b border-r border-white/10 p-7 lg:p-9" style="--d:0ms">
+            <span class="num font-display text-4xl text-gold/60">01</span>
+            <h3 class="mt-12 font-display text-2xl">Lançamentos</h3>
+            <p class="mt-4 text-sm font-light leading-6 text-white/45">Apartamentos na planta e empreendimentos em obras em São Paulo e região.</p>
+          </article>
+          <article class="service-card reveal border-b border-r border-white/10 p-7 lg:p-9" style="--d:80ms">
+            <span class="num font-display text-4xl text-gold/60">02</span>
+            <h3 class="mt-12 font-display text-2xl">Venda</h3>
+            <p class="mt-4 text-sm font-light leading-6 text-white/45">Consultoria para compra de imóveis com atendimento próximo e transparente.</p>
+          </article>
+          <article class="service-card reveal border-b border-r border-white/10 p-7 lg:p-9" style="--d:160ms">
+            <span class="num font-display text-4xl text-gold/60">03</span>
+            <h3 class="mt-12 font-display text-2xl">Visitas</h3>
+            <p class="mt-4 text-sm font-light leading-6 text-white/45">Agende uma visita e conheça os empreendimentos com a equipe da Apartamento 10.</p>
+          </article>
+          <article class="service-card reveal border-b border-r border-white/10 p-7 lg:p-9" style="--d:240ms">
+            <span class="num font-display text-4xl text-gold/60">04</span>
+            <h3 class="mt-12 font-display text-2xl">Orientação</h3>
+            <p class="mt-4 text-sm font-light leading-6 text-white/45">Apoio para escolher o imóvel certo — inclusive opções Minha Casa Minha Vida quando disponíveis.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="relative overflow-hidden bg-ink py-24 text-ivory lg:py-32">
+      <div class="pointer-events-none absolute -left-24 top-0 h-96 w-96 rounded-full bg-gold/10 blur-3xl"></div>
+      <div class="pointer-events-none absolute bottom-0 right-0 h-72 w-72 rounded-full bg-gold/5 blur-3xl"></div>
+      <div class="relative mx-auto grid max-w-[1320px] gap-16 px-5 lg:grid-cols-[.85fr_1.15fr] lg:px-10">
+        <div class="reveal">
+          <p class="text-[10px] font-semibold uppercase tracking-[.32em] text-gold-light">Fale conosco</p>
+          <h2 class="mt-5 font-display text-4xl leading-tight sm:text-5xl lg:text-6xl">Mande-nos uma mensagem, ou <em class="italic text-gold-light">venha nos visitar.</em></h2>
+          <p class="mt-7 max-w-md text-sm font-light leading-7 text-white/50">Nossa equipe terá o maior prazer em lhe atender.</p>
+          <div class="mt-10 space-y-4 text-sm text-white/70">
+            <p class="flex gap-3"><span class="text-gold">T</span> <a href="tel:+5511997422540" class="transition hover:text-white">(11) 99742-2540</a></p>
+            <p class="flex gap-3"><span class="text-gold">W</span> <span><a href="https://wa.me/5511997422540" target="_blank" rel="noopener" class="transition hover:text-white">(11) 99742-2540</a> · <a href="https://wa.me/5511999396202" target="_blank" rel="noopener" class="transition hover:text-white">(11) 99939-6202</a></span></p>
+            <p class="flex gap-3"><span class="text-gold">E</span> <a href="mailto:contato.apartamento10@gmail.com" class="transition hover:text-white">contato.apartamento10@gmail.com</a></p>
+            <p class="flex gap-3"><span class="text-gold">A</span> <span>Rua Vilela, 652 · Tatuapé · CEP 03314-000 · São Paulo/SP</span></p>
+            <p class="flex gap-3"><span class="text-gold">C</span> <span>CRECI 35397</span></p>
+          </div>
+        </div>
+        <form id="contactForm" class="reveal grid gap-6 border border-white/10 bg-ivory/95 p-6 text-ink shadow-premium backdrop-blur sm:grid-cols-2 sm:p-10" style="--d:100ms" novalidate>
+          <div class="sm:col-span-2">
+            <label for="nome" class="mb-2 block text-[9px] font-semibold uppercase tracking-[.18em] text-black/50">Nome completo *</label>
+            <input id="nome" name="nome" required class="field-line w-full border-b border-black/15 bg-transparent py-3 outline-none" placeholder="Como podemos chamar você?" />
+          </div>
+          <div>
+            <label for="email" class="mb-2 block text-[9px] font-semibold uppercase tracking-[.18em] text-black/50">E-mail *</label>
+            <input id="email" name="email" type="email" required class="field-line w-full border-b border-black/15 bg-transparent py-3 outline-none" placeholder="voce@email.com" />
+          </div>
+          <div>
+            <label for="telefone" class="mb-2 block text-[9px] font-semibold uppercase tracking-[.18em] text-black/50">Telefone / WhatsApp *</label>
+            <input id="telefone" name="telefone" required class="field-line w-full border-b border-black/15 bg-transparent py-3 outline-none" placeholder="(11) 99999-9999" />
+          </div>
+          <div>
+            <label for="interesse" class="mb-2 block text-[9px] font-semibold uppercase tracking-[.18em] text-black/50">Interesse</label>
+            <select id="interesse" name="interesse" class="field-line w-full border-b border-black/15 bg-transparent py-3 outline-none">
+              <option>Comprar imóvel / lançamento</option>
+              <option>Agendar visita</option>
+              <option>Apartamento na planta</option>
+              <option>Outro assunto</option>
+            </select>
+          </div>
+          <div>
+            <label for="faixa" class="mb-2 block text-[9px] font-semibold uppercase tracking-[.18em] text-black/50">Região de interesse</label>
+            <select id="faixa" name="faixa" class="field-line w-full border-b border-black/15 bg-transparent py-3 outline-none">
+              <option>São Paulo - SP</option>
+              <option>Tatuapé e região</option>
+              <option>Zona Leste SP</option>
+              <option>Santo André - SP</option>
+              <option>Outra região</option>
+            </select>
+          </div>
+          <div class="sm:col-span-2">
+            <label for="mensagem" class="mb-2 block text-[9px] font-semibold uppercase tracking-[.18em] text-black/50">Conte o que procura</label>
+            <textarea id="mensagem" name="mensagem" rows="3" class="field-line w-full resize-none border-b border-black/15 bg-transparent py-3 outline-none" placeholder="Tipo de imóvel, bairro, orçamento ou código do anúncio..."></textarea>
+          </div>
+          <div class="sm:col-span-2">
+            <button type="submit" class="btn-shine w-full bg-ink px-6 py-4 text-[10px] font-semibold uppercase tracking-[.18em] text-ivory hover:bg-gold hover:text-ink">Enviar no WhatsApp →</button>
+            <p id="formStatus" class="mt-3 hidden text-center text-xs text-green-700" role="status">Abrimos o WhatsApp com sua mensagem.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <a href="https://wa.me/5511997422540?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20a%20Apartamento%2010." target="_blank" rel="noopener" class="wa-float fixed bottom-5 right-5 z-40 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white transition" aria-label="WhatsApp">
+    <svg class="h-7 w-7" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.43c-.26-.13-1.53-.75-1.77-.84-.24-.09-.41-.13-.59.13-.17.26-.67.84-.82 1.01-.15.17-.3.2-.56.07-2.77-1.39-4.59-2.48-6.43-5.63-.49-.84.49-.78 1.39-2.59.15-.3.07-.56-.04-.69-.11-.13-.59-1.42-.8-1.94-.21-.51-.43-.44-.59-.45h-.5c-.17 0-.45.07-.69.32-.24.26-.91.89-.91 2.16s.93 2.51 1.06 2.68c.13.17 1.82 2.78 4.41 3.9 1.64.71 2.28.77 3.1.65.5-.07 1.53-.62 1.74-1.22.22-.6.22-1.12.15-1.22-.06-.12-.23-.18-.49-.31M16.03 3.2A12.78 12.78 0 0 0 5.1 22.59L3.3 29.2l6.76-1.77A12.76 12.76 0 1 0 16.03 3.2m0 23.22c-2.1 0-4.15-.57-5.94-1.64l-.43-.26-4.01 1.05 1.07-3.91-.28-.44A10.58 10.58 0 1 1 16.03 26.4"/></svg>
+  </a>
+
+  <footer class="bg-[#070707] text-white/50">
+    <div class="mx-auto grid max-w-[1440px] lg:grid-cols-[1fr_1.1fr]">
+      <div class="px-5 py-16 lg:px-10 lg:py-20">
+        <a href="#inicio" class="inline-flex items-center gap-3 text-ivory">
+          <img src="logo.png" alt="" class="h-10 w-auto object-contain brightness-0 invert" width="130" height="40" />
+          <span class="hidden sm:block">
+            <strong class="block font-display text-xl font-medium">Apartamento 10</strong>
+            <small class="uppercase tracking-[.22em] text-white/40">Consultoria imobiliária</small>
+          </span>
+        </a>
+        <p class="mt-7 max-w-sm text-sm font-light leading-6">Consultoria imobiliária em São Paulo — lançamentos e apartamentos na planta. CRECI 35397.</p>
+        <div class="mt-10 grid grid-cols-2 gap-8 text-xs">
+          <div>
+            <p class="mb-4 uppercase tracking-[.2em] text-gold-light">Navegação</p>
+            <div class="space-y-3">
+              <a class="block transition hover:text-white" href="#sobre">A Empresa</a>
+              <a class="block transition hover:text-white" href="#imoveis">Lançamentos</a>
+              <a class="block transition hover:text-white" href="#galeria">Galeria</a>
+              <a class="block transition hover:text-white" href="#contato">Contato</a>
+            </div>
+          </div>
+          <div>
+            <p class="mb-4 uppercase tracking-[.2em] text-gold-light">Social</p>
+            <div class="space-y-3">
+              <a class="block transition hover:text-white" href="https://www.instagram.com/apartamento10_/" target="_blank" rel="noopener">Instagram</a>
+              <a class="block transition hover:text-white" href="https://www.facebook.com/apartamento10" target="_blank" rel="noopener">Facebook</a>
+              <a class="block transition hover:text-white" href="https://wa.me/5511997422540" target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="map-grid relative min-h-[340px] overflow-hidden bg-[#0d0d0d]">
+        <iframe title="Mapa — Apartamento 10" class="absolute inset-0 h-full w-full border-0 opacity-85 grayscale contrast-125" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Rua+Vilela,+652,+Tatuap%C3%A9,+S%C3%A3o+Paulo&output=embed"></iframe>
+        <div class="pointer-events-none absolute left-5 top-5 border border-white/10 bg-ink/90 px-4 py-2 text-[9px] uppercase tracking-[.18em] text-white backdrop-blur">Rua Vilela, 652 · Tatuapé · SP</div>
+      </div>
+    </div>
+    <div class="border-t border-white/8 px-5 py-6 lg:px-10">
+      <div class="mx-auto flex max-w-[1360px] flex-col gap-3 text-[9px] uppercase tracking-[.14em] sm:flex-row sm:justify-between">
+        <p>© 2026 Apartamento 10. Todos os direitos reservados Apartamento 10.</p>
+        <span>CRECI 35397</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data/imoveis.js"></script>
+  <script>
+    /* —— Page loader —— */
+    window.addEventListener('load', () => {
+      setTimeout(() => document.getElementById('pageLoader').classList.add('is-done'), 400);
+    });
+    setTimeout(() => document.getElementById('pageLoader').classList.add('is-done'), 2200);
+
+    /* —— Scroll progress —— */
+    const progress = document.getElementById('scrollProgress');
+    const onScrollProgress = () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = h > 0 ? `${(window.scrollY / h) * 100}%` : '0%';
+    };
+    window.addEventListener('scroll', onScrollProgress, { passive: true });
+
+    /* —— Data helpers —— */
+    const normalize = (s) => (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const isLancamento = (p) => /lancamento|lançamento/i.test(`${p.tipo || ''} ${p.status_comercial || ''}`) || p.status_comercial === 'LANCAMENTO';
+    const isObras = (p) => (p.tags || []).some(t => /obras/i.test(t)) || /SETENTA|CINQUENTA|VINTE|NAO_INICIADO/i.test(p.fase_construcao || '');
+    const priceLabel = (p) => p.price_label || (p.price ? `R$ ${p.price}` : 'Consulte valores');
+    const titleOf = (p) => p.title || (p.bairro ? `${p.tipo || 'Imóvel'} — ${p.bairro}` : (p.tipo || 'Imóvel'));
+    const specsOf = (p) => {
+      const bits = [];
+      if (p.fase_label) bits.push(p.fase_label);
+      const area = p.area_util || p.area_const || p.area_total;
+      if (area) bits.push(area.includes('m') ? area : `${area} m²`);
+      if (p.dorms) bits.push(`${p.dorms} dorm.`);
+      if ((p.tags || [])[0]) bits.push(p.tags[0]);
+      return bits.slice(0, 3);
+    };
+    const searchOf = (p) => normalize([p.tipo, p.title, p.bairro, p.cidade, p.purpose, p.code, p.slug, p.meta, p.endereco, p.fase_label, ...(p.tags || []), ...(p.description || []), ...(p.characteristics || [])].join(' '));
+
+    const all = (window.IMOVEIS || []).map(p => ({
+      ...p,
+      _search: searchOf(p),
+      _title: titleOf(p),
+      _price: priceLabel(p),
+      _specs: specsOf(p),
+      _isLanc: isLancamento(p),
+      _isObras: isObras(p)
+    }));
+
+    const lancCount = all.filter(p => p._isLanc).length;
+    const venCount = all.filter(p => p.purpose === 'venda').length;
+    const first = all[0];
+
+    document.getElementById('heroCount').textContent = first
+      ? first._title
+      : (all.length === 1 ? '1 empreendimento' : `${all.length} imóveis`);
+    document.getElementById('heroStats').innerHTML = first
+      ? `<span>${first.bairro || ''}</span><span>${first.cidade || 'São Paulo'}</span><span>Cód. ${first.code || first.id}</span>`
+      : `<span>${lancCount} lançamento${lancCount === 1 ? '' : 's'}</span><span>${venCount} venda</span>`;
+    if (first?.fase_label) {
+      document.getElementById('heroPhaseLabel').textContent = first.fase_label;
+      requestAnimationFrame(() => {
+        setTimeout(() => document.getElementById('heroPhaseBar').classList.add('is-on'), 600);
+      });
+    }
+
+    /* count-up when visible */
+    const countEls = {
+      total: document.getElementById('statTotal'),
+      lanc: document.getElementById('statLanc'),
+      ven: document.getElementById('statVen')
+    };
+    const animateCount = (el, to) => {
+      const start = performance.now();
+      const dur = 1200;
+      const tick = (now) => {
+        const t = Math.min(1, (now - start) / dur);
+        const eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = Math.round(to * eased);
+        if (t < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+    let counted = false;
+    const maybeCount = () => {
+      if (counted) return;
+      counted = true;
+      animateCount(countEls.total, all.length);
+      animateCount(countEls.lanc, lancCount);
+      animateCount(countEls.ven, venCount);
+    };
+
+    document.getElementById('listingSummary').textContent = all.length
+      ? `${all.length} imóvel${all.length === 1 ? '' : 'eis'} no catálogo. Clique para ver fotos e detalhes.`
+      : 'Catálogo em atualização. Fale conosco pelo WhatsApp.';
+
+    /* —— Cards —— */
+    const grid = document.getElementById('propertyGrid');
+    const noResults = document.getElementById('noResults');
+    const loadMoreBtn = document.getElementById('loadMore');
+    const filterButtons = [...document.querySelectorAll('.filter-btn')];
+    let activeFilter = 'todos';
+    let searchTerm = '';
+    let pageSize = 24;
+    let visibleCount = pageSize;
+    let filtered = all.slice();
+
+    function enhanceImages(root = document) {
+      root.querySelectorAll('img[data-enhance]').forEach(img => {
+        const done = () => {
+          img.classList.add('is-loaded');
+          img.parentElement?.classList.remove('img-skeleton');
+        };
+        if (img.complete && img.naturalWidth) done();
+        else {
+          img.addEventListener('load', done, { once: true });
+          img.addEventListener('error', done, { once: true });
+        }
+      });
+    }
+
+    function cardHTML(p, i) {
+      const badge = p._isLanc
+        ? '<span class="absolute left-4 top-4 z-10 bg-gold/95 px-3 py-2 text-[9px] uppercase tracking-[.18em] text-ink backdrop-blur-sm">Lançamento</span>'
+        : '<span class="absolute left-4 top-4 z-10 bg-ink/90 px-3 py-2 text-[9px] uppercase tracking-[.18em] text-white backdrop-blur-sm">Venda</span>';
+      const fase = p.fase_label
+        ? `<span class="absolute bottom-4 left-4 z-10 bg-white/95 px-3 py-2 text-[9px] uppercase tracking-[.14em] text-ink backdrop-blur-sm">${p.fase_label}</span>`
+        : '';
+      const specs = p._specs.map(s => `<span class="after:mx-2 after:text-black/20 after:content-['·'] last:after:content-none">${s}</span>`).join('');
+      const img = p.cover || (p.images && p.images[0]) || '';
+      const loc = [p.bairro, p.cidade || 'São Paulo'].filter(Boolean).join(' · ');
+      return `
+        <article class="property-card reveal group" style="--d:${Math.min(i, 5) * 70}ms" data-id="${p.id}">
+          <a href="imovel.html?id=${encodeURIComponent(p.id)}" class="block">
+            <div class="img-wrap img-skeleton relative h-[300px] sm:h-[320px]">
+              <img data-enhance class="h-full w-full object-cover opacity-0" src="${img}" alt="${p._title}" loading="lazy" decoding="async" />
+              ${badge}
+              ${fase}
+              <span class="absolute right-4 top-4 z-10 bg-white/92 px-3 py-2 text-[9px] uppercase tracking-[.14em] text-ink backdrop-blur-sm">Cód. ${p.code || p.id}</span>
+            </div>
+            <div class="p-6 sm:p-7">
+              <p class="text-[9px] uppercase tracking-[.22em] text-gold">${loc}</p>
+              <h3 class="mt-3 font-display text-2xl leading-tight tracking-tight">${p._title}</h3>
+              <div class="mt-5 flex flex-wrap border-y border-black/8 py-4 text-xs text-black/50">${specs || '<span>Consulte detalhes</span>'}</div>
+              <div class="mt-5 flex items-center justify-between gap-3">
+                <strong class="text-sm font-medium tracking-wide">${p._price}</strong>
+                <span class="text-xs uppercase tracking-[.12em] text-gold transition duration-300 group-hover:translate-x-1">Detalhes →</span>
+              </div>
+            </div>
+          </a>
+        </article>`;
+    }
+
+    function applyFilters(resetPage = true) {
+      filtered = all.filter(p => {
+        let matchCat = true;
+        if (activeFilter === 'lancamento') matchCat = p._isLanc;
+        else if (activeFilter === 'obras') matchCat = p._isObras;
+        else if (activeFilter === 'venda') matchCat = p.purpose === 'venda';
+        const matchSearch = !searchTerm || p._search.includes(searchTerm);
+        return matchCat && matchSearch;
+      });
+      if (resetPage) visibleCount = pageSize;
+      render();
+    }
+
+    function render() {
+      const slice = filtered.slice(0, visibleCount);
+      grid.innerHTML = slice.map((p, i) => cardHTML(p, i)).join('');
+      noResults.classList.toggle('hidden', filtered.length > 0);
+      loadMoreBtn.classList.toggle('hidden', visibleCount >= filtered.length);
+      enhanceImages(grid);
+      grid.querySelectorAll('.reveal').forEach(el => {
+        requestAnimationFrame(() => el.classList.add('visible'));
+      });
+    }
+
+    loadMoreBtn.addEventListener('click', () => {
+      visibleCount += pageSize;
+      render();
+    });
+
+    filterButtons.forEach(button => button.addEventListener('click', () => {
+      activeFilter = button.dataset.filter;
+      filterButtons.forEach(btn => btn.classList.toggle('active', btn === button));
+      applyFilters(true);
+    }));
+
+    document.getElementById('navSearch').addEventListener('submit', e => {
+      e.preventDefault();
+      document.getElementById('imoveis').scrollIntoView({ behavior: 'smooth' });
+    });
+    document.getElementById('navSearchInput').addEventListener('input', e => {
+      searchTerm = normalize(e.target.value).trim();
+      applyFilters(true);
+    });
+
+    applyFilters();
+
+    /* —— Film gallery —— */
+    const filmTrack = document.getElementById('filmTrack');
+    const galleryImgs = (first?.images || []).filter(Boolean);
+    if (galleryImgs.length && filmTrack) {
+      const items = galleryImgs.map((src, i) =>
+        `<a href="imovel.html?id=${first.id}" class="film-item"><img src="${src}" alt="${first._title} — foto ${i + 1}" loading="lazy" decoding="async" /></a>`
+      ).join('');
+      filmTrack.innerHTML = items + items;
+    }
+
+    /* —— Nav / menu —— */
+    const navbar = document.getElementById('navbar');
+    const menuButton = document.getElementById('menuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const updateNavbar = () => navbar.classList.toggle('nav-scrolled', window.scrollY > 40);
+    updateNavbar();
+    window.addEventListener('scroll', updateNavbar, { passive: true });
+
+    menuButton.addEventListener('click', () => {
+      const open = !mobileMenu.classList.contains('is-open');
+      mobileMenu.classList.toggle('is-open', open);
+      menuButton.setAttribute('aria-expanded', String(open));
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      mobileMenu.classList.remove('is-open');
+      menuButton.setAttribute('aria-expanded', 'false');
+    }));
+
+    /* —— Reveal observer —— */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        if (entry.target.closest('#sobre')) maybeCount();
+        revealObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal, .reveal-scale, .reveal-left').forEach(el => revealObserver.observe(el));
+
+    /* —— Contact form —— */
+    document.getElementById('contactForm').addEventListener('submit', event => {
+      event.preventDefault();
+      if (!event.currentTarget.checkValidity()) { event.currentTarget.reportValidity(); return; }
+      const data = new FormData(event.currentTarget);
+      const texto = [
+        'Olá! Gostaria de falar com a Apartamento 10.',
+        `Nome: ${data.get('nome') || ''}`,
+        `E-mail: ${data.get('email') || ''}`,
+        `Telefone: ${data.get('telefone') || ''}`,
+        `Interesse: ${data.get('interesse') || ''}`,
+        `Região: ${data.get('faixa') || ''}`,
+        `Mensagem: ${data.get('mensagem') || ''}`
+      ].join('\n');
+      window.open(`https://wa.me/5511997422540?text=${encodeURIComponent(texto)}`, '_blank', 'noopener');
+      document.getElementById('formStatus').classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>

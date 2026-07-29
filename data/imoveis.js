@@ -1,0 +1,78 @@
+window.IMOVEIS = [
+  {
+    "id": "10027",
+    "slug": "analia-franco-lancamento-sao-paulo-sp-guaiauna",
+    "purpose": "venda",
+    "code": "10027",
+    "title": "ANALIA FRANCO",
+    "meta": "ANALIA FRANCO — lançamento em Guaiaúna, São Paulo/SP. Consultoria Apartamento 10.",
+    "tipo": "Lançamento",
+    "price": null,
+    "price_num": null,
+    "price_label": "Consulte valores",
+    "bairro": "Guaiaúna",
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "endereco": "Rua Ingu, 157",
+    "cep": "03630-040",
+    "iptu": "",
+    "condominio": "ANALIA FRANCO",
+    "obs_valor": "",
+    "garantia": "",
+    "area_util": "",
+    "area_const": "42 m²",
+    "area_total": "",
+    "dorms": "",
+    "suites": "",
+    "banhos": "",
+    "vagas": "",
+    "fase_construcao": "SETENTA_E_CINCO_PORCENTO",
+    "fase_label": "75% pronto",
+    "status_comercial": "LANCAMENTO",
+    "tags": [
+      "EM OBRAS"
+    ],
+    "latitude": -23.5333264,
+    "longitude": -46.5504291,
+    "description": [
+      "Lançamento ANALIA FRANCO localizado na Rua Ingu, 157 — Guaiaúna, São Paulo/SP.",
+      "Fase de construção: 75% pronto.",
+      "Empreendimento com infraestrutura de lazer e segurança. Valores sob consulta com a Apartamento 10."
+    ],
+    "characteristics": [
+      "Minha Casa Minha Vida",
+      "Cerca elétrica",
+      "Portaria 24h",
+      "Acesso para deficientes",
+      "Academia",
+      "Brinquedoteca",
+      "Churrasqueira",
+      "Piscina",
+      "Playground",
+      "Quadra de grama",
+      "Salão de festas"
+    ],
+    "images": [
+      "assets/imoveis/10027/02.jpg",
+      "assets/imoveis/10027/01.jpg",
+      "assets/imoveis/10027/03.jpg",
+      "assets/imoveis/10027/04.jpg",
+      "assets/imoveis/10027/05.jpg",
+      "assets/imoveis/10027/06.jpg",
+      "assets/imoveis/10027/07.jpg",
+      "assets/imoveis/10027/08.jpg",
+      "assets/imoveis/10027/09.jpg",
+      "assets/imoveis/10027/10.jpg",
+      "assets/imoveis/10027/11.jpg",
+      "assets/imoveis/10027/12.jpg"
+    ],
+    "cover": "assets/imoveis/10027/02.jpg",
+    "thumbnail": "assets/imoveis/10027/02.jpg",
+    "plantas": [
+      "assets/imoveis/10027/10.jpg",
+      "assets/imoveis/10027/11.jpg",
+      "assets/imoveis/10027/12.jpg"
+    ],
+    "source_url": "https://www.apartamento10.com.br/lancamentos/10027/ANALIA-FRANCO"
+  }
+];

@@ -1,0 +1,38 @@
+{
+  "name": "Apartamento 10",
+  "title": "Apartamento 10 | Consultoria imobiliária",
+  "description": "Imóveis exclusivos com a qualidade que só a Apartamento 10 oferece. Confira as melhores ofertas de apartamentos na planta e lançamentos em São Paulo, SP e agende uma visita.",
+  "frase": "Temos imóveis para todos os gostos!",
+  "email": "contato.apartamento10@gmail.com",
+  "phone": "(11) 99742-2540",
+  "phone_raw": "11997422540",
+  "whatsapp": "(11) 99939-6202",
+  "whatsapp_raw": "11999396202",
+  "whatsapp_main": "11997422540",
+  "creci": "35397",
+  "address": {
+    "street": "Rua Vilela, 652",
+    "neighborhood": "Tatuapé",
+    "city": "São Paulo",
+    "state": "SP",
+    "cep": "03314-000",
+    "country": "Brasil"
+  },
+  "instagram": "https://www.instagram.com/apartamento10_/",
+  "facebook": "https://www.facebook.com/apartamento10",
+  "site": "https://www.apartamento10.com.br",
+  "logo": "https://flip-prod-fotos.s3.amazonaws.com/9313e53b-e68b-47c2-b4c9-8c0a2586612b.png",
+  "banner_desktop": "https://flip-prod-fotos.s3.amazonaws.com/161ce2a6-acc4-4e6c-97b2-8e12068897a7.jpeg",
+  "banner_mobile": "https://flip-prod-fotos.s3.amazonaws.com/1700f473-94ea-4055-940e-297192cebfa1.jpeg",
+  "banner_secondary": "https://flip-prod-fotos.s3.amazonaws.com/0598237f-06ea-4a85-ace8-86137d3fbeea.jpeg",
+  "copyright": "Todos os direitos reservados Apartamento 10",
+  "primaryColor": "#000000",
+  "secondaryColor": "#FFFFFF",
+  "cidadePrincipal": "São Paulo-SP",
+  "pretensoes": [
+    "VENDA"
+  ],
+  "tiposImoveis": [
+    "Apartamento"
+  ]
+}
